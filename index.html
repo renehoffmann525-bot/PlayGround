@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#f6f7ee"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23d8f16a'/%3E%3Ctext x='20' y='29' text-anchor='middle' font-size='29'%3E✦%3C/text%3E%3C/svg%3E"><title>Bloonfield — Monkey Defense</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Bloonfield Home"><span class="brand-mark">✦</span><span>BLOON<span class="brand-green">FIELD</span></span></a>
+    <div class="season-tag"><span class="season-dot"></span> SUNNY MEADOWS <span class="tag-divider">/</span> MAP 01</div>
+    <div class="top-actions"><button class="icon-btn" id="soundBtn" title="Sound on/off">♫</button><button class="avatar" title="Ranger">🐵</button></div>
+  </header>
+  <main>
+    <section class="game-heading"><div><div class="eyebrow">MONKEY DEFENSE CLUB <span>•</span> BEGINNER TRAIL</div><h1>Meadow <em>Mayhem</em></h1><p class="subtitle">A sunny day, a twisty trail, and a whole lot of bloons.</p></div><div class="level-badge"><span class="badge-icon">🏅</span><div><b>FIELD GUIDE</b><small>Level 1 · Rookie ranger</small></div></div></section>
+    <section class="game-layout">
+      <div class="play-column">
+        <div class="statsbar">
+          <div class="stat"><span class="stat-icon heart">♥</span><div><small>LIVES</small><b id="lives">100</b></div></div>
+          <div class="stat"><span class="stat-icon coin">◉</span><div><small>BANANAS</small><b id="cash">650</b></div></div>
+          <div class="stat wave-stat"><span class="wave-symbol">🌊</span><div><small>WAVE</small><b><span id="wave">0</span><i> / 20</i></b></div></div>
+          <div class="stat bloon-stat"><span class="stat-icon balloon-stat">●</span><div><small>BLOONS POPPED</small><b id="popped">0</b></div></div>
+          <button class="round-control" id="pauseBtn" title="Pause game">Ⅱ</button>
+          <button class="speed-control" id="speedBtn" title="Toggle speed">1×</button>
+        </div>
+        <div class="canvas-wrap"><canvas id="game" aria-label="Tower defense game map"></canvas><div class="map-label"><span class="sun-mark">☀</span> SUNNY MEADOWS <span>·</span> <b>0:00</b></div><div class="toast" id="toast"></div><div class="wave-callout" id="waveCallout"></div><div class="game-over" id="gameOver"><div class="over-emoji">🎈</div><h2 id="overTitle">Trail over!</h2><p id="overText">The bloons made it through.</p><button id="restartBtn" class="primary-btn">Try again <span>↻</span></button></div></div>
+        <div class="wave-controls"><button id="waveBtn" class="primary-btn wave-button"><span class="play-icon">▶</span><span id="waveBtnText">Start round 1</span><span class="button-key">SPACE</span></button><div class="wave-hint"><span class="hint-spark">✦</span><span id="waveHint">Place a defender, then start the round!</span></div><div class="wave-progress"><span id="progressFill"></span></div></div>
+        <div class="bottom-note"><span>💡</span> <b>Ranger tip:</b> Darts are cheap and cheerful. Try placing one near a bend for extra shots!</div>
+      </div>
+      <aside class="tower-panel">
+        <div class="panel-title"><div><div class="eyebrow">BUILD YOUR CREW</div><h2>Defenders <span id="towerCount">0</span><small> / 8</small></h2></div><span class="panel-leaf">🌿</span></div>
+        <p class="panel-copy">Pick a pal, then tap a grassy spot to place them.</p>
+        <div class="tower-list" id="towerList">
+          <button class="tower-card selected" data-type="dart"><span class="tower-art dart-art">🐒<i>➤</i></span><span class="tower-info"><b>Dart Monkey</b><small>Quick & reliable</small></span><span class="tower-cost"><span>◉</span> 200</span><span class="card-select">✓</span></button>
+          <button class="tower-card" data-type="ninja"><span class="tower-art ninja-art">🐵<i>✦</i></span><span class="tower-info"><b>Ninja Monkey</b><small>Fast · sees camo</small></span><span class="tower-cost"><span>◉</span> 350</span><span class="card-select">✓</span></button>
+          <button class="tower-card" data-type="boomer"><span class="tower-art boomer-art">🐒<i>↗</i></span><span class="tower-info"><b>Boomerang</b><small>Curves through crowds</small></span><span class="tower-cost"><span>◉</span> 400</span><span class="card-select">✓</span></button>
+          <button class="tower-card" data-type="cannon"><span class="tower-art cannon-art">💣<i>✹</i></span><span class="tower-info"><b>Little Cannon</b><small>Big splash damage</small></span><span class="tower-cost"><span>◉</span> 500</span><span class="card-select">✓</span></button>
+        </div>
+        <div class="upgrade-panel" id="upgradePanel"><div class="upgrade-heading"><span>YOUR DEFENDER</span><button id="sellBtn" class="sell-btn">SELL</button></div><div class="selected-unit"><span id="selectedEmoji">🐒</span><div><b id="selectedName">Dart Monkey</b><small id="selectedLevel">Level 1 · Trail scout</small></div><button id="closeSelection" class="close-btn">×</button></div><div class="upgrade-row"><span class="upgrade-icon">🎯</span><div><b>Sharpened aim</b><small>More range & quicker shots</small></div><button id="upgradeBtn">◉ <span>180</span></button></div><div class="upgrade-row"><span class="upgrade-icon">✨</span><div><b>Super darts</b><small>Pops 2 layers at once</small></div><button id="upgradeBtn2">◉ <span>320</span></button></div></div>
+        <div class="legend"><div class="legend-title">BLOON FIELD GUIDE <span>↗</span></div><div class="legend-items"><span><i class="dot red"></i>Red</span><span><i class="dot blue"></i>Blue</span><span><i class="dot green"></i>Green</span><span><i class="dot moab"></i>MOAB</span></div><p>Each bloon hides a smaller one inside!</p></div>
+      </aside>
+    </section>
+    <footer><span>© 2025 Bloonfield Rangers</span><span>Made for sunny days <b>☀</b></span><span class="footer-links">HOW TO PLAY <i>·</i> SETTINGS</span></footer>
+  </main>
+</div>
+<script src="game.js"></script>
+</body></html>
